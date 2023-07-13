@@ -33,12 +33,11 @@ export class News extends Component {
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e5cd55c1a66b43e1b11cbd8cc115fb99&page=${this.state.page}&pageSize=${this.props.pageSize}`
         this.setState(
             { loading: true }
-            )
-            let data = await fetch(url);
-            this.props.setProgress(35);
-            let parsedData = await data.json();
-            console.log(parsedData);
-            this.props.setProgress(55);
+        )
+        let data = await fetch(url);
+        this.props.setProgress(35);
+        let parsedData = await data.json();
+        this.props.setProgress(55);
         this.setState(
             {
                 articles: parsedData.articles,
@@ -65,11 +64,10 @@ export class News extends Component {
     //     this.updateNews();
     // }
     fetchMoreData = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e5cd55c1a66b43e1b11cbd8cc115fb99&page=${this.state.page+1}&pageSize=${this.props.pageSize}`
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e5cd55c1a66b43e1b11cbd8cc115fb99&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`
         this.setState({ page: this.state.page + 1 })
         let data = await fetch(url);
         let parsedData = await data.json();
-        console.log(parsedData);
         this.setState(
             {
                 articles: this.state.articles.concat(parsedData.articles),
@@ -81,7 +79,7 @@ export class News extends Component {
     render() {
         return (<>
             <h2 className='text-center mt-3'>News-Top {this.capitalizeFirstLetter(this.props.category)} News Headlines</h2>
-            {this.state.loading && <Spinner/>}
+            {this.state.loading && <Spinner />}
             <InfiniteScroll
                 dataLength={this.state.articles.length}
                 next={this.fetchMoreData}
