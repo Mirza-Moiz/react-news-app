@@ -94,6 +94,7 @@ export class News extends Component {
                         })}
                     </div>
                 </div>
+
             </InfiniteScroll>
             {/* <div className='container d-flex justify-content-between'> */}
             {/* <button disabled={this.state.page <= 1} type='button' className="btn btn-dark" onClick={this.HandlePreviousClick} >&larr; Previous</button>
