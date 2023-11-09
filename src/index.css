@@ -11,12 +11,11 @@ body {
 }
 
 .news_card {
-    animation: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .news_card:hover {
     transform: scale(1.03);
-    transition: all 0.3s ease-in-out;
 }
 
 .news_card img {
@@ -24,11 +23,11 @@ body {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    transition: 0.3s ease-in-out;
 }
 
 .news_card:hover img {
     opacity: 1;
-    transition: all 0.3s ease-in-out;
 }
 
 
