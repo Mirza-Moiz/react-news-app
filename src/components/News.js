@@ -16,7 +16,7 @@ const News = (props) => {
 
     const updateNews = async () => {
         props.setProgress(15);
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=e5cd55c1a66b43e1b11cbd8cc115fb99&page=${page}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${process.env.REACT_APP_API_KEY}&page=${page}`;
 
         setLoading(true);
 
@@ -54,17 +54,18 @@ const News = (props) => {
 
     useEffect(() => {
         updateNews();
+        // eslint-disable-next-line
     }, []);
 
     return (
         <>
             <h1 className='text-center margin'>News - Top {capitalizeFirstLetter(props.category)} News Headlines</h1>
             {loading && <Spinner />}
-            {articles.length > 0 && (
+            {articles?.length > 0 && (
                 <InfiniteScroll
-                    dataLength={articles.length}
+                    dataLength={articles?.length}
                     next={fetchMoreData}
-                    hasMore={articles.length !== totalResults}
+                    hasMore={articles?.length !== totalResults}
                     loader={<Spinner />}
                 >
                     <div className='container'>

@@ -6,6 +6,7 @@ const NewsItems = (props) => {
         backgroundColor: '#4F4557',
         border: 'none',
         color: 'white',
+        height: '460px',
     };
     const boxShadow = {
         boxShadow: '0 0 15px rgba(0,0,0,0.5)',
