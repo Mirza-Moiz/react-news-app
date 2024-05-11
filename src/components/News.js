@@ -16,8 +16,9 @@ const News = (props) => {
 
     const updateNews = async () => {
         props.setProgress(15);
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${process.env.REACT_APP_API_KEY}&page=${page}`;
-
+        // const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${process.env.REACT_APP_API_KEY}&page=${page}`;
+        const url = `https://saurav.tech/NewsAPI/top-headlines/category/${props.category}/${props.country}.json`
+        console.log(url);
         setLoading(true);
 
         try {
@@ -37,7 +38,7 @@ const News = (props) => {
 
     const fetchMoreData = async () => {
         const nextPage = page + 1;
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=e5cd55c1a66b43e1b11cbd8cc115fb99&page=${nextPage}`;
+        const url = `https://saurav.tech/NewsAPI/top-headlines/category/${props.category}/${props.country}.json`
 
         setPage(nextPage);
 
